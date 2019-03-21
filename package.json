@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@date-io/date-fns": "^1.1.0",
+    "@material-ui/core": "latest",
+    "date-fns": "next",
     "material-ui": "^0.20.2",
+    "material-ui-pickers": "^2.2.4",
+    "prop-types": "latest",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "react-validation": "^3.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
