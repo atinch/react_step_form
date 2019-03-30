@@ -31,6 +31,7 @@ export default class FormUserDetails extends Component {
 						floatingLabelText="First Name"
 						onChange={handleChange('firstName')}
 						defaultValue={values.firstName}
+						errorText={values.firstNameError}
 					/> <br />
 
 					<TextField
@@ -38,6 +39,7 @@ export default class FormUserDetails extends Component {
 						floatingLabelText="Last Name"
 						onChange={handleChange('lastName')}
 						defaultValue={values.lastName}
+						errorText={values.lastNameError}
 					/> <br />
 
 					<TextField
@@ -45,7 +47,7 @@ export default class FormUserDetails extends Component {
 						floatingLabelText="Email"
 						onChange={handleChange('email')}
 						defaultValue={values.email}
-						//errorText = {values.emailError}
+						errorText = {values.emailError}
 					/>
 					<br />
 

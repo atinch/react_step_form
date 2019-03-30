@@ -19,21 +19,32 @@ class UserForm extends Component {
 		city: '',
 		bio: '',
 		emailError: '',
-		errors: {},
-		formErrors: {email: ''}
+		firstNameError: '',
+		lastNameError: ''
 	}
-
+	
 	validate = () => {
 		let isError = false;
-		const errors = {};
+		let errors = {};
 
-		if(this.state.email.length < 10) {
-			errors.email = 'email needs to be at least 10 characters long'
+		if(this.state.firstName.length < 3 ) {
+			errors.firstNameError = 'username is so short';
 			isError = true;
-		}
-		if(isError) {
+		} 
+		if(this.state.lastName.length < 3 ) {
+			errors.lastNameError = 'lastname is so short';
+			isError = true;
+		} 
+		if(this.state.email.length < 5) {
+			errors.emailError = 'email needs to be at least 10 characters long';
+			isError = true;
+		} 
+		if(this.state.email.indexOf('@') === -1) {
+			errors.emailError = 'email is not valid';
+			isError = true;
+		} 
+			if(isError) {
 			this.setState({
-				...this.state,
 				...errors
 			})
 
@@ -43,6 +54,10 @@ class UserForm extends Component {
 	//proceed the next step 
 	nextStep = () => {
 		const err = this.validate();
+		console.log(this.state.firstNameError);
+		
+		if (err) return false;
+
 		const { step } = this.state;
 		this.setState({
 			step: step + 1
@@ -65,11 +80,10 @@ class UserForm extends Component {
 		this.setState({ selectedDate: date });
 	};
 
-
 	render() {
 		const { step } = this.state;
-		const { firstName, lastName, email, selectedDate, occupation, city, bio, emailError } = this.state;
-		const values = { firstName, lastName, email, selectedDate, occupation, city, bio, emailError }
+		const { firstName, lastName, email, selectedDate, occupation, city, bio, emailError, firstNameError, lastNameError } = this.state;
+		const values = { firstName, lastName, email, selectedDate, occupation, city, bio, emailError, firstNameError, lastNameError }
 		return (
 			<Fragment>
 				{step === 1 &&
